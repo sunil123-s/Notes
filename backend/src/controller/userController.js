@@ -99,7 +99,6 @@ export  const getUser = async (req, res) => {
         createdOn:isUser.createdOn,
        }}) 
     } catch (error) {
-        console.log(error)
         return res
           .status(401)
           .json({ success: false, message: "User Not Found" });

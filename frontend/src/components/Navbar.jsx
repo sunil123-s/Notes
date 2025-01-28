@@ -73,7 +73,7 @@ const Navbar = ({ onSearchResults, onNoteClick }) => {
         </div>
       </div>
       <form
-        className="relative flex items-center w-full sm:w-auto mt-4 sm:mt-0"
+        className="relative flex items-center w-full sm:w-auto mt-4 sm:mt-0 cursor-pointer"
         onSubmit={handleSearch}
       >
         <IoSearchOutline className="w-5 h-5 text-gray-400 absolute right-3" />

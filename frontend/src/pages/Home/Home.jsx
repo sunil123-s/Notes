@@ -66,7 +66,6 @@ const Home = () => {
         setAllNotes(allNotes.filter((note) => note._id !== noteId));
       }
     } catch (error) {
-      console.log("Error deleting note:", error);
       toast.error("Failed to delete note");
     }
   };
@@ -95,6 +94,12 @@ const Home = () => {
     }
   }, [loading, user]);
 
+  const handleDetails = (note) => {
+    setSelectedNote(note);
+    setIsEditOpen(true);
+  };
+
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -109,17 +114,24 @@ const Home = () => {
         onNoteClick={handleNoteClick}
       />
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-8">
-          {sortedNotes.map((item) => (
-            <NoteCard
-              key={item?._id}
-              item={item}
-              onEdit={() => handleOnEdit(item)}
-              onPin={handlePinNote}
-              onDelete={() => handleDeleteNote(item._id)}
-            />
-          ))}
-        </div>
+        {sortedNotes.length === 0 ? (
+          <div className="flex justify-center items-center h-[90vh] font-bold text-6xl">
+            Write Your First Note
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-8">
+            {sortedNotes.map((item) => (
+              <NoteCard
+                key={item?._id}
+                item={item}
+                onEdit={() => handleOnEdit(item)}
+                onPin={handlePinNote}
+                onDelete={() => handleDeleteNote(item._id)}
+                onDetails={handleDetails}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       <button
@@ -151,3 +163,4 @@ const Home = () => {
 };
 
 export default Home;
+

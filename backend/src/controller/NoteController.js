@@ -22,7 +22,6 @@ export const AddNote = async(req, res) => {
              .status(200)
              .json({ success: true, message: "Note Created" ,data:note });
     } catch (error) {
-        console.log(error)
           return res
             .status(400)
             .json({ success: false, message: "Failed To Create Note" });
@@ -98,11 +97,8 @@ export const deleteNote = async(req, res) => {
 export const updatePinned = async(req, res) => {
     try {
           const noteId = req.params.noteid;
-          console.log(noteId)
           const { isPinned } = req.body;
-          console.log(isPinned)
           const user = req.user;
-          console.log(user)
           
         const note = await Note.findOne({ _id: noteId, userId: user._id });
 

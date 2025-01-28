@@ -14,7 +14,6 @@ const AddEditNotes = ({ note, onClose, fetchNote }) => {
 
   useEffect(() => {
     if (note) {
-      console.log("editing", note);
       setTitle(note.title);
       setContent(note.content);
       setTags(note.tags || []);

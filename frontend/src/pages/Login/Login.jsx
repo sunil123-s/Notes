@@ -25,7 +25,6 @@ function Login() {
         navigate("/dashboard");
       }
     } catch (error) {
-      console.log(error);
       seterror(error.response?.data?.message || "Something went wrong");
     }
   };

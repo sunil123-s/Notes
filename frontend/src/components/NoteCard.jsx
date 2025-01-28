@@ -11,7 +11,8 @@ const NoteCard = ({ item, onEdit, onPin, onDelete }) => {
   };
 
   return (
-    <div className="border rounded p-4 bg-white hover:shadow-xl transition-all ease-in-out cursor-pointer w-full sm:w-96 md:w-[380px] lg:w-[450px]">
+    <div
+      className="border rounded p-4 bg-white hover:shadow-xl transition-all ease-in-out cursor-pointer w-full sm:w-96 md:w-[380px] lg:w-[450px]">
       <div className="flex justify-between items-start sm:items-center">
         <div>
           <h6 className="text-sm font-medium">{item?.title}</h6>
@@ -50,3 +51,4 @@ const NoteCard = ({ item, onEdit, onPin, onDelete }) => {
 };
 
 export default NoteCard;
+
